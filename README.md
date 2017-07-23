@@ -1,6 +1,9 @@
 
 # Simply React
-A simple react starter kit heavily inspired by `erikras`'s [`react-redux-universal-hot-example`](https://github.com/erikras/react-redux-universal-hot-example) but with removed unnecessary features like API server and some back-end capabilities. In one word, it's Simple!
+A simple react starter kit heavily inspired by `erikras`'s [`react-redux-universal-hot-example`](https://github.com/erikras/react-redux-universal-hot-example) but with removed unnecessary features like API server and some back-end capabilities to reduce boiler plate learning curve (you need to study a boiler plate before you are able to unleash its potential, don't you?) and of course to reduce app size, thus, better performance.
+
+This is for you if you just need a front-end app that gathers data only from external sources, or even a static app, then you wont have unnecessary code and resources for things like API server or real-time capabilities. I will post the benchmark numbers later! In one word, it's Simple!
+
 ### Under active development!
 I'm currently analyzing which features will be removed or adjusted. The main feature I'm focusing right now is the compatibility with `react-router@^4.0.0`.
 
