@@ -24,17 +24,15 @@
   ],
   "main": "bin/server.js",
   "scripts": {
-    "start": "concurrently --kill-others \"npm run start-prod\" \"npm run start-prod-api\"",
+    "start": "concurrently --kill-others \"npm run start-prod\"",
     "start-prod": "better-npm-run start-prod",
-    "start-prod-api": "better-npm-run start-prod-api",
-    "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\" \"npm run start-dev-api\"",
+    "dev": "concurrently --kill-others \"npm run watch-client\" \"npm run start-dev\"",
     "start-dev": "better-npm-run start-dev",
-    "start-dev-api": "better-npm-run start-dev-api",
     "watch-client": "better-npm-run watch-client",
     "build": "better-npm-run build",
     "build-dlls": "webpack --colors --display-error-details --config webpack/vendor.config.js",
     "postinstall": "concurrently \"npm run build\" \"npm run build-dlls\"",
-    "lint": "eslint -c .eslintrc api src",
+    "lint": "eslint -c .eslintrc src",
     "test": "karma start",
     "test-node": "jest $(find api -name '*-test.js')",
     "test-node-watch": "jest $(find api -name '*-test.js') --watch",
@@ -53,14 +51,6 @@
         "APIPORT": 3030
       }
     },
-    "start-prod-api": {
-      "command": "node ./bin/api.js",
-      "env": {
-        "NODE_PATH": "./api",
-        "NODE_ENV": "production",
-        "APIPORT": 3030
-      }
-    },
     "start-dev": {
       "command": "node ./bin/server.js",
       "env": {
@@ -69,14 +59,6 @@
         "PORT": 3000,
         "APIPORT": 3030,
         "WEBPACK_DLLS": 1
-      }
-    },
-    "start-dev-api": {
-      "command": "node ./bin/api.js",
-      "env": {
-        "NODE_PATH": "./api",
-        "NODE_ENV": "development",
-        "APIPORT": 3030
       }
     },
     "watch-client": {
