@@ -5,6 +5,7 @@ var path = require('path');
 var webpack = require('webpack');
 var CleanPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 var projectRootPath = path.resolve(__dirname, '../');
 var assetsPath = path.resolve(projectRootPath, './static/dist');
@@ -163,6 +164,7 @@ module.exports = {
       // disable: false,
       allChunks: true
     }),
+    new OptimizeCssAssetsPlugin({}),
 
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"',
