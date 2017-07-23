@@ -1,8 +1,13 @@
 
 # Simply React
-A simple react starter kit heavily inspired by `erikras`'s [`react-redux-universal-hot-example`](https://github.com/erikras/react-redux-universal-hot-example) but with removed unnecessary features like API server and some back-end capabilities.
+A simple react starter kit heavily inspired by `erikras`'s [`react-redux-universal-hot-example`](https://github.com/erikras/react-redux-universal-hot-example) but with removed unnecessary features like API server and some back-end capabilities. In one word, it's Simple!
 ### Under active development!
 I'm currently analyzing which features will be removed or adjusted. The main feature I'm focusing right now is the compatibility with `react-router@^4.0.0`.
+
+Features to be removed (more coming):
+- [x] API server
+- [ ] Socket
+- [ ] FeathersJs
 
 [![Build Status](https://travis-ci.org/bertho-zero/react-redux-universal-hot-example.svg?branch=master&style=flat-square)](https://travis-ci.org/bertho-zero/react-redux-universal-hot-example)
 [![Dependency Status](https://david-dm.org/bertho-zero/react-redux-universal-hot-example.svg?style=flat-square)](https://david-dm.org/bertho-zero/react-redux-universal-hot-example)
