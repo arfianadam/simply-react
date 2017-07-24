@@ -12,6 +12,11 @@ Features to be removed (more coming):
 - [ ] Socket
 - [ ] FeathersJs
 
+Features to be added:
+- [ ] `react-router` v4
+- [ ] better code splitting
+- [ ] better SSR async prefetch
+
 [![Build Status](https://travis-ci.org/bertho-zero/react-redux-universal-hot-example.svg?branch=master&style=flat-square)](https://travis-ci.org/bertho-zero/react-redux-universal-hot-example)
 [![Dependency Status](https://david-dm.org/bertho-zero/react-redux-universal-hot-example.svg?style=flat-square)](https://david-dm.org/bertho-zero/react-redux-universal-hot-example)
 [![devDependency Status](https://david-dm.org/bertho-zero/react-redux-universal-hot-example/dev-status.svg?style=flat-square)](https://david-dm.org/bertho-zero/react-redux-universal-hot-example?type=dev)
