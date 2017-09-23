@@ -12,7 +12,6 @@ import { AppContainer as HotEnabler } from 'react-hot-loader';
 import { useScroll } from 'react-router-scroll';
 import { getStoredState } from 'redux-persist';
 import localForage from 'localforage';
-import { socket, createApp } from 'app';
 import { Provider } from 'components';
 import createStore from './redux/create';
 import ApiClient from './helpers/ApiClient';
@@ -25,33 +24,17 @@ const offlinePersistConfig = {
 };
 
 const client = new ApiClient();
-const app = createApp();
-const restApp = createApp('rest');
+// const app = restAppcreateApp();
+// const restApp = createApp('rest');
 const dest = document.getElementById('content');
-
-function initSocket() {
-  socket.on('news', data => {
-    console.log(data);
-    socket.emit('my other event', { my: 'data from client' });
-  });
-  socket.on('msg', data => {
-    console.log(data);
-  });
-
-  return socket;
-}
-
-global.socket = initSocket();
 
 Promise.all([window.__data ? true : isOnline(), getStoredState(offlinePersistConfig)])
   .then(([online, storedData]) => {
-    if (online) socket.open();
-
     // if your server doesn't authenticate socket connexion by cookie
     // if (online) app.authenticate().catch(() => null);
 
     const data = !online ? { ...storedData, ...window.__data, online } : { ...window.__data, online };
-    const store = createStore(browserHistory, { client, app, restApp }, data, offlinePersistConfig);
+    const store = createStore(browserHistory, { client }, data, offlinePersistConfig);
     const history = syncHistoryWithStore(browserHistory, store);
 
     const redirect = bindActionCreators(replace, store.dispatch);
@@ -59,7 +42,7 @@ Promise.all([window.__data ? true : isOnline(), getStoredState(offlinePersistCon
     const renderRouter = props => (
       <ReduxAsyncConnect
         {...props}
-        helpers={{ client, app, restApp, redirect }}
+        helpers={{ client, redirect }}
         filter={item => !item.deferred}
         render={applyRouterMiddleware(useScroll())}
       />
@@ -69,7 +52,7 @@ Promise.all([window.__data ? true : isOnline(), getStoredState(offlinePersistCon
       match({ history, routes }, (error, redirectLocation, renderProps) => {
         ReactDOM.render(
           <HotEnabler>
-            <Provider store={store} app={app} restApp={restApp} key="provider">
+            <Provider store={store} key="provider">
               <Router {...renderProps} render={renderRouter} history={history}>
                 {routes}
               </Router>

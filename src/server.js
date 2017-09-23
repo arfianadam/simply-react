@@ -18,7 +18,6 @@ import createStore from 'redux/create';
 import ApiClient from 'helpers/ApiClient';
 import Html from 'helpers/Html';
 import getRoutes from 'routes';
-import { createApp } from 'app';
 
 process.on('unhandledRejection', error => console.error(error));
 
@@ -50,9 +49,7 @@ app.use((req, res) => {
     webpackIsomorphicTools.refresh();
   }
   const providers = {
-    client: new ApiClient(req),
-    app: createApp(req),
-    restApp: createApp(req)
+    client: new ApiClient(req)
   };
   const memoryHistory = createHistory(req.originalUrl);
   const store = createStore(memoryHistory, providers);
@@ -82,7 +79,7 @@ app.use((req, res) => {
       const redirect = to => { throw new VError({ name: 'RedirectError', info: { to } }); };
       loadOnServer({ ...renderProps, store, helpers: { ...providers, redirect } }).then(() => {
         const component = (
-          <Provider store={store} app={providers.app} restApp={providers.restApp} key="provider">
+          <Provider store={store} key="provider">
             <ReduxAsyncConnect {...renderProps} />
           </Provider>
         );

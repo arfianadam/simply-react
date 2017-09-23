@@ -9,8 +9,8 @@ I'm currently analyzing which features will be removed or adjusted. The main fea
 
 Features to be removed (more coming):
 - [x] API server
-- [ ] Socket
-- [ ] FeathersJs
+- [x] Socket
+- [x] FeathersJs
 
 Features to be added:
 - [ ] `react-router` v4
