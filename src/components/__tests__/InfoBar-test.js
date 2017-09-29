@@ -29,7 +29,9 @@ describe('InfoBar', () => {
   );
   const dom = ReactDOM.findDOMNode(renderer); // TODO replace findDOMNode method
 
-  it('should render correctly', () => expect(renderer).to.be.ok);
+  it('should render correctly', () => {
+    expect(renderer).to.be.ok;
+  });
 
   it('should render with correct value', () => {
     const text = dom.getElementsByTagName('strong')[0].textContent;
