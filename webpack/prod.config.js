@@ -23,7 +23,6 @@ module.exports = {
   entry: {
     main: [
       'bootstrap-loader',
-      'font-awesome-webpack!./src/theme/font-awesome.config.prod.js',
       './src/client.js'
     ]
   },
