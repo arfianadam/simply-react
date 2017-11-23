@@ -51,6 +51,8 @@ var webpackConfig = module.exports = {
       'webpack-hot-middleware/client?path=http://' + host + ':' + port + '/__webpack_hmr',
       'react-hot-loader/patch',
       'bootstrap-loader',
+      'font-awesome-webpack!./src/theme/font-awesome.config.js',
+      'animate.css',
       './src/client.js'
     ]
   },
@@ -81,6 +83,9 @@ var webpackConfig = module.exports = {
         test: /\.scss$/,
         loader: 'happypack/loader?id=sass',
         include: [path.resolve(__dirname, '../src')]
+      }, {
+        test: /\.css$/,
+        loader: 'happypack/loader?id=css'
       }, {
         test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
@@ -214,6 +219,13 @@ var webpackConfig = module.exports = {
           outputStyle: 'expanded',
           sourceMap: true
         }
+      }
+    ]),
+    helpers.createHappyPlugin('css', [
+      {
+        loader: 'style-loader'
+      }, {
+        loader: 'css-loader'
       }
     ])
   ]

@@ -5,6 +5,8 @@ import { CounterButton, GithubButton } from 'components';
 import config from 'config';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import $ from 'jquery';
+require('./chosen.min.css');
 
 @connect(
   state => ({
@@ -17,7 +19,18 @@ export default class Home extends Component {
     online: PropTypes.bool.isRequired
   };
 
+  componentDidMount() {
+    const WOW = require('exports-loader?this.WOW!wowjs'); // eslint-disable-line
+    const wow = new WOW({
+      offset: 100
+    }); // eslint-disable-line
+    wow.init();
+    require('imports-loader?jQuery=jquery!chosen-js'); // eslint-disable-line
+    $('#adam').chosen();
+  }
+
   render() {
+    console.log('render home.js');
     const { online } = this.props;
     const styles = require('./Home.scss');
     // require the logo image both from client and server
@@ -26,15 +39,19 @@ export default class Home extends Component {
       <div className={styles.home}>
         <Helmet title="Home" />
         <div className={styles.masthead}>
-          <div className="container">
+          <div className="container asdasd">
             <div className={styles.logo}>
               <p>
                 <img src={logoImage} alt="presentation" />
               </p>
             </div>
-            <h1>{config.app.title}</h1>
+            <h1 className="wow tada">{config.app.title}</h1>
 
             <h2>{config.app.description}</h2>
+            <select name="adam" id="adam">
+              <option value="1">Coba</option>
+              <option value="2">Coba 2</option>
+            </select>
 
             <p>
               <a
@@ -70,6 +87,11 @@ export default class Home extends Component {
               <a href="https://twitter.com/arfianadam" target="_blank" rel="noopener noreferrer">@arfianadam</a>.
             </p>
           </div>
+        </div>
+
+        <div className="container cobacoba">
+          <img src="http://placehold.it/400x200&amp;text=1" alt="adsad" />
+          <img src="http://placehold.it/400x200&amp;text=2" alt="asdasd" />
         </div>
 
         <div className="container">

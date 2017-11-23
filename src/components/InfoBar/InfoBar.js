@@ -20,7 +20,7 @@ export default class InfoBar extends Component {
     const { info, load } = this.props; // eslint-disable-line no-shadow
     const styles = require('./InfoBar.scss');
     return (
-      <div className={`${styles.infoBar} well`}>
+      <div className={`${styles.infoBar} wow fadeIn well`}>
         <div className="container">
           This is an info bar{' '}
           <strong>{info ? info.message : 'no info!'}</strong>

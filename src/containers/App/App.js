@@ -46,6 +46,14 @@ export default class App extends Component {
     store: PropTypes.object.isRequired
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ // eslint-disable-line
+        a: 1
+      });
+    }, 2000);
+  }
+
   componentWillReceiveProps(nextProps) {
     if (!this.props.user && nextProps.user) {
       // login

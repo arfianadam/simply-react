@@ -78,6 +78,7 @@
     }
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "async": "^2.1.4",
     "babel-core": "^6.23.1",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -90,9 +91,11 @@
     "babel-register": "^6.23.0",
     "babel-runtime": "^6.23.0",
     "body-parser": "^1.16.1",
+    "chosen-js": "^1.7.0",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
     "cssnano": "^3.10.0",
+    "exports-loader": "^0.6.4",
     "express": "^4.14.1",
     "express-session": "^1.15.1",
     "feathers": "^2.0.3",
@@ -109,7 +112,9 @@
     "feathers-nedb": "^2.6.0",
     "feathers-rest": "^1.7.3",
     "feathers-socketio": "^2.0.0",
+    "imports-loader": "^0.7.1",
     "is-promise": "^2.1.0",
+    "jquery": "^3.2.1",
     "js-cookie": "^2.1.3",
     "localforage": "^1.4.3",
     "lru-memoize": "^1.0.1",
@@ -134,12 +139,16 @@
     "redux-connect": "^5.0.0",
     "redux-form": "^6.5.0",
     "redux-persist": "^4.4.0",
+    "redux-thunk": "^2.2.0",
+    "rellax": "^1.1.0",
+    "script-loader": "^0.7.0",
     "serialize-javascript": "^1.3.0",
     "serve-favicon": "^2.3.2",
     "socket.io": "^2.0.1",
     "socket.io-client": "^2.0.1",
     "superagent": "^3.4.4",
-    "verror": "^1.10.0"
+    "verror": "^1.10.0",
+    "wowjs": "^1.1.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

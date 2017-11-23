@@ -23,7 +23,16 @@ module.exports = {
   entry: {
     main: [
       'bootstrap-loader',
+      'font-awesome-webpack!./src/theme/font-awesome.config.prod.js',
+      'animate.css',
       './src/client.js'
+    ],
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router',
+      'react-redux',
+      'superagent'
     ]
   },
   output: {
@@ -91,6 +100,26 @@ module.exports = {
                 outputStyle: 'expanded',
                 sourceMap: true,
                 sourceMapContents: true
+              }
+            }
+          ]
+        })
+      }, {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                modules: false,
+                importLoaders: 1,
+                sourceMap: true
+              }
+            }, {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true
               }
             }
           ]
@@ -183,6 +212,11 @@ module.exports = {
       compress: {
         warnings: false
       }
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.bundle.js'
     }),
 
     webpackIsomorphicToolsPlugin,
